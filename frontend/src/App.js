@@ -18,6 +18,7 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
+import ShopScreen from './screens/ShopScreen';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -34,10 +35,11 @@ function App() {
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              amazona
+              Iyal's Fashion
             </Link>
           </div>
           <div>
+            <Link to="/shop">Shop</Link>
             <Link to="/cart">
               Cart
               {cartItems.length > 0 && (
@@ -97,6 +99,7 @@ function App() {
             component={ProductEditScreen}
             exact
           ></Route>
+          <Route path="/shop" component={ShopScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
