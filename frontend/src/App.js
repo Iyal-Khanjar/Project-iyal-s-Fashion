@@ -35,7 +35,7 @@ function App() {
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              Iyal's Fashion
+              Ayal's <span> Fashion</span>
             </Link>
           </div>
           <div>
@@ -55,6 +55,11 @@ function App() {
                   <li>
                     <Link to="/profile">User Profile</Link>
                   </li>
+                  {userInfo && userInfo.isAdmin && (
+                    <li>
+                      <Link to="/productlist">Products admin</Link>
+                    </li>
+                  )}
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
@@ -63,20 +68,9 @@ function App() {
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Sign In <i className="fa-solid fa-right-to-bracket"></i></Link>
             )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/productlist">Products</Link>
-                  </li>   
-                </ul>
-              </div>
-            )}
+
           </div>
         </header>
         <main>
@@ -109,7 +103,14 @@ function App() {
           ></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">All right reserved</footer>
+        <footer>
+          <div className='footer'>
+            <div className='footer-content'>
+              <span>Iyal's Fashion | Happy Shopping </span>
+              <span>©2021 Julis Israel, Inc. All rights reserved</span>
+            </div>
+          </div>
+        </footer>
       </div>
     </BrowserRouter>
   );
