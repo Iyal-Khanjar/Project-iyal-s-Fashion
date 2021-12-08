@@ -38,7 +38,7 @@ export default function ShopScreen() {
     <div>
       <div className='fillterForm'>
         <div className='formGroup'>
-          <label htmlFor='type'>Category</label><br />
+          <label className='category' htmlFor='type'>Category</label><br />
           <select onChange={handlePeriodChange} name="type" id="type">
             <option value="All" >All</option>
             <option value="Shirts">Shirts</option>

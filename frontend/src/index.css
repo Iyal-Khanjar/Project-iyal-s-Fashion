@@ -24,8 +24,10 @@ body {
 }
 header {
 	grid-area: header;
-	font-size: 25px;
+	font-size: 2rem;
+	height:7rem ;
 	border-bottom: black 1px solid;
+
 }
 main {
 	grid-area: main;
@@ -118,12 +120,12 @@ header a:hover {
 }
 a.brand {
 	color: black;
-	font-size: 3rem;
+	font-size: 3.5rem;
 	font-weight: bold;
 }
 a.brand:hover {
 	color: black;
-	font-size: 3.5rem;
+	font-size: 4rem;
 }
 a.brand span {
 	color: rgb(255, 169, 9);
@@ -172,6 +174,7 @@ img.medium {
 	width: 100%;
 }
 img.large {
+	margin-top: 1.5rem;
 	width: 100%;
 }
 
@@ -364,6 +367,7 @@ img.large {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 3rem;
 }
 .fillterForm select{
 	margin-top: 10px;
@@ -374,4 +378,12 @@ img.large {
 	display: inline;
 	padding: 10px;
 	background-color: rgb(43, 198, 226);
+}
+/* product screen */
+.containerForCard{
+	margin-top: 2rem;
+}
+.backToResult{
+	font-size: 2rem;
+	color: #f02020;
 }
