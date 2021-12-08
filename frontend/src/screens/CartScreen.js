@@ -65,7 +65,7 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>${item.price}</div>
+                  <div>{`$${item.price}`}</div>
                   <div>
                     <button
                       type="button"
@@ -81,7 +81,7 @@ export default function CartScreen(props) {
         )}
       </div>
       <div className="col-1">
-        <div className="card card-body">
+        <div className="mar card card-body">
           <ul>
             <li>
               <h2>
