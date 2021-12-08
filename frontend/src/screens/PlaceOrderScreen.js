@@ -33,7 +33,7 @@ export default function PlaceOrderScreen(props) {
   }, [dispatch, order, props.history, success]);
   return (
     <div>
-      <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
+      <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <div className="row top">
         <div className="col-2">
           <ul>
@@ -128,7 +128,7 @@ export default function PlaceOrderScreen(props) {
                   className="primary block"
                   disabled={cart.cartItems.length === 0}
                 >
-                  Place Order
+                  Pay By PayPal
                 </button>
               </li>
               {loading && <LoadingBox></LoadingBox>}

@@ -369,3 +369,9 @@ img.large {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+/* confirmedpursh */
+.confirmedpursh{
+	display: inline;
+	padding: 10px;
+	background-color: rgb(43, 198, 226);
+}
