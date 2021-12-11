@@ -38,19 +38,19 @@ export default function ShopScreen() {
   return (
     <div className='shoppingContainer'>
       <div className='welcomeToShop'>
-        {
-          userInfo ? `Hello ${userInfo.name} in our shop you will find every thing you need if you have any question please contact us`
-            :
-            `Hello Customer in our shop you will find every thing you need if you have any question please contact us`
-        }
+       {
+         userInfo?`Hello ${userInfo.name} in our shop you will find every thing you need if you have any question please contact us`
+         :
+         `Hello Customer in our shop you will find every thing you need if you have any question please contact us`
+       }
       </div>
       <div className='fillterForm'>
         <div className='formGroup'>
           <label className='category' htmlFor='type'>Category</label><br />
           <select onChange={handlePeriodChange} name="type" id="type">
             <option value="All" >All</option>
-            <option value="Shirts">Shirts</option>
             <option value="Pants">Pants</option>
+            <option value="Shirts">Shirts</option>
             <option value="Shoes">Shoes</option>
           </select>
         </div>

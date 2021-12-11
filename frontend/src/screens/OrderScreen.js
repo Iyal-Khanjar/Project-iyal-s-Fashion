@@ -1,75 +1,95 @@
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import {
-  ORDER_DELIVER_RESET,
-  ORDER_PAY_RESET,
-} from '../constants/orderConstants';
+import CheckoutSteps from '../components/CheckoutSteps';
+import { createOrder } from '../actions/orderActions';
 
 export default function OrderScreen(props) {
-  const orderId = props.match.params.id;
-  const [sdkReady, setSdkReady] = useState(false);
-  const orderDetails = useSelector((state) => state.orderDetails);
-  const { order, loading, error } = orderDetails;
+  const cart = useSelector((state) => state.cart);
+
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
-  const orderPay = useSelector((state) => state.orderPay);
-  const {
-    loading: loadingPay,
-    error: errorPay,
-    success: successPay,
-  } = orderPay;
-  const orderDeliver = useSelector((state) => state.orderDeliver);
-  const {
-    loading: loadingDeliver,
-    error: errorDeliver,
-    success: successDeliver,
-  } = orderDeliver;
+  if (!userInfo) {
+    props.history.push('/signin');
+  }
   const dispatch = useDispatch();
-  useEffect(() => {
-    const addPayPalScript = async () => {
-      const { data } = await Axios.get('/api/config/paypal');
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
-      script.async = true;
-      script.onload = () => {
-        setSdkReady(true);
-      };
-      document.body.appendChild(script);
-    };
-    if (
-      !order ||
-      successPay ||
-      successDeliver ||
-      (order && order._id !== orderId)
-    ) {
-      dispatch({ type: ORDER_PAY_RESET });
-      dispatch({ type: ORDER_DELIVER_RESET });
-      dispatch(detailsOrder(orderId));
-    } else {
-      if (!order.isPaid) {
-        if (!window.paypal) {
-          addPayPalScript();
-        } else {
-          setSdkReady(true);
-        }
-      }
-    }
-  }, [dispatch, order, orderId, sdkReady, successPay, successDeliver]);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    window.alert('Thanks we will deliver as soon as possible');
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }))
+    props.history.push('/shop');
+  };
 
-  return loading ? (
-    <LoadingBox></LoadingBox>
-  ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
-  ) : (
+  return (
     <div>
-      <h1>Order {order._id}</h1>
-      <div className='confirmedpursh'>Thank you for purchasing, It will be delivered as soon as possible</div>
-    </div>
+      <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
+      <form className="form" onSubmit={submitHandler}>
+        <div>
+          <h3>Billing Address</h3>
+        </div>
+
+        <div>
+          <label htmlFor="fname"><i className="fa fa-user"></i> Full Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Enter full name" required />
+        </div>
+        <div>
+          <label htmlFor="email"><i className="fa fa-envelope"></i> Email</label>
+          <input type="text" id="email" name="email" placeholder="Enter Email" required />
+        </div>
+        <div>
+          <label htmlFor="address"><i className="fa fa-address-card-o"></i> Address</label>
+          <input type="text" id="adr" name="address" placeholder="Enter Address" required />
+        </div>
+        <div>
+          <label htmlFor="city"><i className="fa fa-institution"></i> City</label>
+          <input type="text" id="city" name="city" placeholder="Enter City" required />
+        </div>
+        <div>
+          <label htmlFor="state">State</label>
+          <input type="text" id="state" name="state" placeholder="Enter State" required />
+        </div>
+        <div>
+          <label htmlFor="zip">Zip</label>
+          <input type="text" id="zip" name="zip" placeholder="Enter Zip" required />
+        </div>
+
+        <div>
+          <h3>Payment</h3>
+        </div>
+        <div>
+          <label htmlFor="fname">Accepted Cards</label>
+          <div className="icon-container">
+            <i className="fa fa-cc-visa" style={{ color: "navy" }}></i>
+            <i className="fa fa-cc-amex" style={{ color: "blue" }}></i>
+            <i className="fa fa-cc-mastercard" style={{ color: "red" }}></i>
+            <i className="fa fa-cc-discover" style={{ color: "orange" }}></i>
+          </div>
+        </div>
+        <div>
+          <label htmlFor="cname">Name on Card</label>
+          <input type="text" id="cname" name="cardname" placeholder="Enter Name On Card" required />
+        </div>
+        <div>
+          <label htmlFor="ccnum">Credit card number</label>
+          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required />
+        </div>
+        <div>
+          <label htmlFor="expmonth">Exp Month</label>
+          <input type="text" id="expmonth" name="expmonth" placeholder="Enter Month" required />
+        </div>
+        <div>
+          <label htmlFor="expyear">Exp Year</label>
+          <input type="text" id="expyear" name="expyear" placeholder="Enter Exp" required />
+        </div>
+        <div>
+          <label htmlFor="cvv">CVV</label>
+          <input type="text" id="cvv" name="cvv" placeholder="Enter Cvv" required />
+        </div>
+        <div>
+          <label />
+          <button className="primary" type="submit">Continue To Checkout</button>
+        </div>
+      </form >
+    </div >
   );
 }

@@ -11,7 +11,7 @@ export default function ProductEditScreen(props) {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Pants');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
@@ -38,7 +38,7 @@ export default function ProductEditScreen(props) {
       setName(product.name);
       setPrice(product.price);
       setImage(product.image);
-      setCategory(product.category);
+      setCategory(category);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
       setDescription(product.description);
@@ -64,6 +64,7 @@ export default function ProductEditScreen(props) {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
@@ -83,12 +84,16 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
+  const handlePeriodChange = (e) => {
+    setCategory(e.target.value);
 
+  }
+  console.log(category);
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Product {productId}</h1>
+          <h1>Add/Edit Product</h1>
         </div>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
@@ -143,13 +148,11 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="category">Category</label>
-              <input
-                id="category"
-                type="text"
-                placeholder="Enter category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></input>
+              <select onChange={handlePeriodChange} name="type" id="type">
+                <option value="Pants">Pants</option>
+                <option value="Shirts">Shirts</option>
+                <option value="Shoes">Shoes</option>
+              </select>
             </div>
             <div>
               <label htmlFor="brand">Brand</label>

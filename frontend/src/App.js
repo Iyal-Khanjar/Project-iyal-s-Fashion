@@ -87,7 +87,7 @@ function App() {
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
           <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
-          <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/order" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <PrivateRoute
             path="/profile"
@@ -106,7 +106,7 @@ function App() {
         <footer>
           <div className='footer'>
             <div className='footer-content'>
-              <span>Iyal's Fashion | Happy Shopping </span>
+              <span>Ayal's Fashion | Happy Shopping </span>
               <span>©2021 Julis Israel, Inc. All rights reserved</span>
             </div>
           </div>
