@@ -27,7 +27,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className='containerForCard'>
-          <Link className='backToResult' to="/">Back to result</Link>
+          <Link className='backToResult' to="/shop">Back to result</Link>
           <div className="row top">
             <div className="col-2">
               <img

@@ -38,7 +38,7 @@ function App() {
               Ayal's <span> Fashion</span>
             </Link>
           </div>
-          <div>
+          <div className='allNav'>     
             <Link to="/shop">Shop</Link>
             <Link to="/cart">
               Cart

@@ -25,9 +25,8 @@ body {
 header {
 	grid-area: header;
 	font-size: 2rem;
-	height:7rem ;
+	height: 7rem;
 	border-bottom: black 1px solid;
-
 }
 main {
 	grid-area: main;
@@ -101,6 +100,8 @@ button.block {
 	width: 100%;
 }
 button.small {
+	width: 100%;
+	background-color: #f0c040;
 	font-size: 1.2rem;
 }
 /* Header */
@@ -151,6 +152,7 @@ a.brand span {
 	align-items: flex-start;
 }
 .col-1 {
+	margin-top: 0.5rem;
 	flex: 1 1 25rem;
 }
 .col-2 {
@@ -180,11 +182,13 @@ img.large {
 
 /* Card */
 .card {
+	position: relative;
 	border: 0.1rem #c0c0c0 solid;
 	border-radius: 0.5rem;
 	margin: 1rem;
-	background-color: rgb(9, 255, 243);
+	background: linear-gradient(45deg, #e6fb04, #ff6600, #00ff66, #00ffff, #ff00ff, #ff0099, #6e0dd0, #ff3300, #099fff);
 	box-shadow: 0 4px 8px 0 rgb(174, 190, 24);
+	overflow: hidden;
 }
 .card-body {
 	padding: 1rem;
@@ -195,9 +199,10 @@ img.large {
 .price {
 	font-size: 2rem;
 }
-.card:hover{
-	box-shadow: 0 8px 16px 0 rgba(174,190,24,1);
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(174, 190, 24, 1);
 }
+
 /* Rating */
 .rating span {
 	color: #f0c040;
@@ -267,6 +272,9 @@ img.large {
 	display: block;
 }
 /* Checkout Steps */
+.checkout-steps {
+	margin-top: 2rem;
+}
 .checkout-steps > div {
 	border-top: 0.3rem #c0c0c0 solid;
 	color: #c0c0c0;
@@ -356,37 +364,52 @@ img.large {
 .containerAbout .aboutTitle {
 	color: #c68b95;
 }
-.containerAbout .contactEmail {
+.containerAbout .contactEmail { 
+	margin-top: 0.5rem;
+}
+.containerAbout .contactEmail a { 
 	color: #c68b95;
 }
+.containerAbout .contactEmail a:hover {
+	color: red;
+	cursor: pointer;
+}
+
 .containerAbout .song {
 	color: #b90e2a;
 }
 /* shoping */
-.fillterForm{
+/* .shoppingContainer{
+	background: url('./img/shopbackground.jpg') no-repeat center center/cover
+} */
+.fillterForm {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: 3rem;
 }
-.fillterForm select{
+.fillterForm select {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+.welcomeToShop {
+	text-align: center;
+	margin-top: 3rem;
+}
 /* confirmedpursh */
-.confirmedpursh{
-	display: inline;
+.confirmedpursh {
+	display: block;
 	padding: 10px;
 	background-color: rgb(43, 198, 226);
 }
 /* product screen */
-.containerForCard{
+.containerForCard {
 	margin-top: 2rem;
 }
-.backToResult{
+.backToResult {
 	font-size: 2rem;
 	color: #f02020;
 }
-.mar{
+.mar {
 	margin-top: 1rem;
 }

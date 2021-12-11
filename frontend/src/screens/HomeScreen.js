@@ -32,21 +32,18 @@ export default function HomeScreen() {
                 <div className='containerAbout'>
                     <div className='firstP'>
                         <h4 className='aboutTitle' >About Our Shop</h4>
-                        <p>Located just east of the Twin Cities in Woodbury, MN right off I-94 in the Woodbury Lakes outdoor shopping center!</p>
+                        <p>It is an online shop that you can order porducts and we deliver it to you</p>
                         <p>Our Shop Bridal wants to make your experience special!  From the very moment you walk through the door; our goal is to have our customers feel catered to and loved. We have passionate consultants that want to help turn your vision and dreams into reality.  </p>
                     </div>
                     <div className='secondeP'>
                         <h4 className='aboutTitle' >Your Day. Your Vision. Our Shop</h4>
                         <p>Our designer gowns are hand picked for quality, the ability to fit everyone's budget and of course breathtaking beauty!  We can also compliment your entire wedding party with bridesmaids, Mother's gowns and guests.  We also cater to Galas, Homecoming, Prom and Pagents.</p>
-                        <p>We are "Appointment Only" to make sure you are helped one and one with a personal consultant to assist you throughout your appointment.  </p>
-                        <p>Our newest and current gowns on our Bridal Floor range in price from about $700 - $5000 and ranging in sizes 4 -28.  We also have a Past Season Sample Selection in good shape that we have discounted up to 80% and all gowns priced in that area are $1000 and under.  </p>
-                        <p>We look forward to serving you well and helping you feel beautiful on your special day!  </p>
                     </div>
                     <div className='thirdP'>
                         <span> Contact Us today:</span><br />
                     </div>
                     <div className='contactEmail'>
-                        ayalkhanjar@gmail.com
+                       <a href='mailto:ayalkhanjar@gmail.com'>By Our Mail</a> 
                     </div>
                     <div className='song'>
                         <p>Bridal, Bridesmaids,<br /> Mothers Gowns, Gala<br />Special Events,<br />including Prom</p>

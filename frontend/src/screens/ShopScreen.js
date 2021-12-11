@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -7,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 
 export default function ShopScreen() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   const [showCopyCategory, setShowCopyCategory] = useState(true)
   const [productCategory, setProductCategory] = useState('All')
   const [copyProducts, setCopyProducts] = useState([])
@@ -35,7 +36,14 @@ export default function ShopScreen() {
     setShowCopyCategory(false)
   }
   return (
-    <div>
+    <div className='shoppingContainer'>
+      <div className='welcomeToShop'>
+        {
+          userInfo ? `Hello ${userInfo.name} in our shop you will find every thing you need if you have any question please contact us`
+            :
+            `Hello Customer in our shop you will find every thing you need if you have any question please contact us`
+        }
+      </div>
       <div className='fillterForm'>
         <div className='formGroup'>
           <label className='category' htmlFor='type'>Category</label><br />
