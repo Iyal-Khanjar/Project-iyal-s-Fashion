@@ -85,12 +85,7 @@ export default function ProductListScreen(props) {
             {products.map((product) => (
               <tr key={product._id}>
                 <td>{product._id}</td>
-                <td>{product.name}
-                <img
-                className="small"
-                src={product.image}
-                alt={product.name}
-              ></img></td>
+                <td><img className="small" src={product.image} alt={product.name}></img>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>
                 <td>{product.brand}</td>

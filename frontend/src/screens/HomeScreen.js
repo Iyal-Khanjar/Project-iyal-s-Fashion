@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { listProducts } from '../actions/productActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import Product from '../components/Product';
-import Rating from '../components/Rating';
 
 export default function HomeScreen() {
-    const [showTopThree, setShowTopThree] = useState([])
+
     const dispatch = useDispatch();
-    const productList = useSelector((state) => state.productList);
-    const { loading, error, products } = productList;
+
     useEffect(() => {
         dispatch(listProducts());
     }, [dispatch]);
@@ -43,7 +38,7 @@ export default function HomeScreen() {
                         <span> Contact Us today:</span><br />
                     </div>
                     <div className='contactEmail'>
-                       <a href='mailto:ayalkhanjar@gmail.com'>By Our Mail</a> 
+                        <a href='mailto:ayalkhanjar@gmail.com'>By Our Mail</a>
                     </div>
                     <div className='song'>
                         <p>Bridal, Bridesmaids,<br /> Mothers Gowns, Gala<br />Special Events,<br />including Prom</p>
