@@ -414,3 +414,16 @@ img.large {
 .mar {
 	margin-top: 1rem;
 }
+.reviews{
+	display: flex;
+}
+.reviewUl{
+	display: flex;
+	margin-left: 3rem;
+	
+}
+.reviewUl li{
+	margin-left: 3rem;
+	padding: 2rem;
+	border: 2px solid rgb(184, 170, 170)
+}

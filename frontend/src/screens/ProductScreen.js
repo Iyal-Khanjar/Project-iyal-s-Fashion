@@ -148,7 +148,8 @@ export default function ProductScreen(props) {
             {product.reviews.length === 0 && (
               <MessageBox>There is no review</MessageBox>
             )}
-            <ul>
+            <div className='reviews'>
+            <ul className='reviewUl'>
               {product.reviews.map((review) => (
                 <li key={review._id}>
                   <strong>{review.name}</strong>
@@ -157,6 +158,9 @@ export default function ProductScreen(props) {
                   <p>{review.comment}</p>
                 </li>
               ))}
+              </ul>
+              </div>
+              <ul>
               <li>
                 {userInfo ? (
                   <form className="form" onSubmit={submitHandler}>
